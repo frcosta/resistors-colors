@@ -74,7 +74,7 @@ program resistor_color
             write(*,'(I1 I1 I1)') vector(1), vector(2), vector(3)
 
         case (11)
-            write(*,'(I1 I1 A I1)') '0,', vector(1), vector(2), ',', vector(3)
+            write(*,'(I1 I1 A I1)') vector(1), vector(2), ',', vector(3)
 
         case (12)
             write(*,'(I1 A I1 I1)') vector(1), ',', vector(2), vector(3)

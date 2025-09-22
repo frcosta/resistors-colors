@@ -71,13 +71,13 @@ program resistor_color
                                        
         select case (vector(4))
         case (0)
-            write(*,'(I1 I1 I1)') vector(1), vector(2), vector(3)
+            write(*,'(I1, I1, I1)') vector(1), vector(2), vector(3)
 
         case (11)
-            write(*,'(I1 I1 A I1)') vector(1), vector(2), ',', vector(3)
+            write(*,'(I1, I1, A, I1)') vector(1), vector(2), ',', vector(3)
 
         case (12)
-            write(*,'(I1 A I1 I1)') vector(1), ',', vector(2), vector(3)
+            write(*,'(I1, A, I1, I1)') vector(1), ',', vector(2), vector(3)
 
         case default
             soma = (vector(1) * 100 + vector(2) * 10 + vector(3)) * 10 ** vector(4)
@@ -86,7 +86,7 @@ program resistor_color
 
         end select
         
-        write(*,'(A A)') 'Tolerancia:       ', tolerancia(vector(5))
+        write(*,'(A, A)') 'Tolerancia:       ', tolerancia(vector(5))
 
     end subroutine
 
@@ -100,13 +100,13 @@ program resistor_color
                                        
         select case (vector(3))
         case (0)
-            write(*,'(I1 I1)') vector(1), vector(2)
+            write(*,'(I1, I1)') vector(1), vector(2)
 
         case (11)
-            write(*,'(A I1 I1)') '0,', vector(1), vector(2)
+            write(*,'(A, I1, I1)') '0,', vector(1), vector(2)
 
         case (12)
-            write(*,'(I1 A I1)') vector(1), ',', vector(2)
+            write(*,'(I1, A, I1)') vector(1), ',', vector(2)
 
         case default
             soma = 10 ** vector(3) * (vector(1) * 10 + vector(2))
@@ -126,7 +126,7 @@ program resistor_color
         integer, intent(in)    :: size
         integer, intent(inout) :: vector(size)
         do cont = 1, size
-            write(*, '(A X1 I1 A)', advance="no") 'Faixa', cont, ':'
+            write(*, '(A, I1, A)', advance="no") 'Faixa', cont, ':'
             k = getch()
 
             if (k == 68 .or. k == 100) then         ! k='d' or k='D'
@@ -147,10 +147,10 @@ program resistor_color
         integer :: i
         write(*,*)
         do i = 1, 5
-            write (*, '(I2 A A X1 I2 A A)') i-1,' - ', cor(i), i+5-1,' - ', cor(i+5)
+            write (*, '(I2, A, A, I2, A, A)') i-1,' - ', cor(i), i+5-1,' - ', cor(i+5)
         end do
         write (*,*)
-        write (*,'(A A X2 A A)') ' D - ', cor(11), ' P - ', cor(12)
+        write (*,'(A, A, A, A)') ' D - ', cor(11), ' P - ', cor(12)
     end subroutine showTable
 
 end program resistor_color

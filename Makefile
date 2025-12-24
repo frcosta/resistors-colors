@@ -6,9 +6,9 @@ OBJ = $(SRC:.f90=.o)
 
 OBJ_LINK = $(OBJ) getch.o
 
-all: res_cores.exe
+all: res_cores
 
-res_cores.exe: $(OBJ_LINK)
+res_cores: $(OBJ_LINK)
 	$(FC) $(FFLAGS) -o $@ $^
 
 %.o: %.f90
@@ -16,4 +16,4 @@ res_cores.exe: $(OBJ_LINK)
 
 clean:
 	del *.o
-	del res_cores.exe
+	del res_cores

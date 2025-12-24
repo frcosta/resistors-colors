@@ -1,6 +1,6 @@
 ! -----------------------------------------------
 ! Calculo de resistores baseado nas cores
-! GNU Fortran (tdm64-1) 10.3.0 on Windows 11
+! GNU Fortran 13.3.0 on Linux
 ! Fabiano Costa Sep/21/2025
 ! compile: make all 
 ! -----------------------------------------------
@@ -61,7 +61,7 @@ program resistor_color
 
     subroutine proc5Colors( vector, size )
         integer, intent(in)    :: size
-        integer, intent(inout) :: vector(size)   
+        integer, intent(inout) :: vector(size)
         integer                :: soma
         character(len=10)      :: texto
         character(len=5), dimension(8) :: tolerancia = ['1%   ','2%   ','3%   ','4%   ', &
@@ -92,11 +92,11 @@ program resistor_color
 
     subroutine proc4Colors( vector, size )
         integer, intent(in)    :: size
-        integer, intent(inout) :: vector(size)   
+        integer, intent(inout) :: vector(size)
         integer                :: soma
         character(len=10)      :: texto
         
-        write(*,'(/ A)', advance="no") 'Resistor em ohms: ' 
+        write(*,'(/ A)', advance="no") 'Resistor em ohms: '
                                        
         select case (vector(3))
         case (0)
